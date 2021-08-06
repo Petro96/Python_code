@@ -106,7 +106,14 @@ def f5(n):
 
 ###  Turbo Sort
 
+def f_sort(arr):
 
+  return sorted(arr)
+
+arr=[2,5,7,1,4,9]
+print(f_sort(arr))
+
+    
 
 
 
