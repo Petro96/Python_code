@@ -115,7 +115,9 @@ arr=[2,5,7,1,4,9]
 
 #### Lucky four
 
+#### REverse number
 
+#### Seckond Largest
 
     
 
