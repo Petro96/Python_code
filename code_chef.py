@@ -129,13 +129,64 @@ def f6(n):
                 s+=1
         print('sum od 4:',s)
         s=0
-f6(3)
+#f6(3)
     
-
 #### REverse number
+def f7(n):
+    arr = []
+    arr_reverse = []
+    reverse =''
+    for i in range(n):
+        num = input('number: ')
+        arr.append(num)
 
-#### Seckond Largest
+    for j in range(len(arr)):
+        for k in range(len(arr[j])-1,-1,-1):
+            reverse= reverse+arr[j][k]
+        arr_reverse.append(reverse)
+        reverse=''
+        
+    for num in arr_reverse:
+        print(num)
 
+#f7(3)
+
+#### Seckond Largest   not finished
+        
+def f8(m,n):
+
+    arr = []
+    arr_extern = []
+    maximum = 0
+    m_second = 0
+
+    for i in range(m):
+        for j in range(n):
+            num = int(input('Number '))
+            arr.append(num)
+        arr_extern.append(arr)
+        arr = []
+        
+    print(arr_extern)
+    
+    for k in range(len(arr_extern)):
+        for l in range(len(arr_extern[k])):
+            
+            if arr_extern[k][l] > maximum:
+                maximum = arr_extern[k][l]
+                arr_extern[k].remove(maximum)
+                m_second = max(arr_extern[k])
+        #print(maximum)
+        
+        print('Second maximum,',m_second)
+        m_second=0
+        maximum =0
+
+#f8(1,3)    
+
+#### LEAD GAME -- >> game
+
+### Chef and Operators 
     
 
 
