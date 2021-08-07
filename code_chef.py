@@ -114,6 +114,23 @@ arr=[2,5,7,1,4,9]
 #print(f_sort(arr))
 
 #### Lucky four
+def f6(n):
+    s=0
+    arr=[]
+
+    for i in range(n):
+        num = input('numb: ')
+        arr.append(num)
+    print(arr)
+    for j in range(len(arr)):
+        for k in range(len(arr[j])):
+            if arr[j][k] == '4':
+                
+                s+=1
+        print('sum od 4:',s)
+        s=0
+f6(3)
+    
 
 #### REverse number
 
