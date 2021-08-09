@@ -174,21 +174,21 @@ def f8(m,n):
             
             if arr_extern[k][l] > maximum:
                 maximum = arr_extern[k][l]
-                arr_extern[k].remove(maximum)
-                m_second = max(arr_extern[k])
+                
+                
         #print(maximum)
-        
+        arr_extern[k].remove(maximum)
+        m_second = max(arr_extern[k])
         print('Second maximum,',m_second)
         m_second=0
         maximum =0
 
-#f8(1,3)    
+#f8(2,3)    
 
 #### LEAD GAME -- >> game
 
 ### Chef and Operators 
     
-
 
 
 
