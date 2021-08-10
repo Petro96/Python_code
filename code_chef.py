@@ -151,7 +151,7 @@ def f7(n):
 
 #f7(3)
 
-#### Seckond Largest   not finished
+#### Seckond Largest   
         
 def f8(m,n):
 
@@ -188,8 +188,110 @@ def f8(m,n):
 #### LEAD GAME -- >> game
 
 ### Chef and Operators 
+def f9(n):
+
+    arr = []
+    arr_extern = []
+
+    equal = '='
+    greater = '>'
+    less = '<'
+    result = ''
+
+    for i in range(n):
+        for j in range(2):
+            num = int(input('num '))
+            arr_extern.append(num)
+        arr.append(arr_extern)
+        arr_extern = []
+    print('Array of numbers : ',arr)
+    for k in range(len(arr)):
+        for n in range(len(arr[k])):
+            if arr[k][0] == arr[k][1]:
+                result += equal
+            if arr[k][0] > arr[k][1]:
+                result +=greater
+            if arr[k][0] < arr[k][1]:
+                result +=less
+        
+        print(result)
+        result=''
+                
+
+#f9(3)
+        
+### Chef and Remissness
+
+def f10(n):
+    s = 0
+    minimum = 0
+    maximum = 0
+    arr = []
+    arr_extern = []
+
+    for i in range(n):
+        for j in range(2):
+            num = int(input('num '))
+            arr_extern.append(num)
+        arr.append(arr_extern)
+        arr_extern = []
+
+    for k in range(len(arr)):
+        for n in range(1):
+            print('array ',arr)
+            maximum = max(arr[k])
+            minimum = min(arr[k])
+            s = maximum + minimum
+        print('min ',minimum,'s ',s)
+
+        s=0
+        minimum =0
+        maximum=0
+
+#f10(2)
+
+### valid triangles
+
+def valid_triangles(n):
+
+    s = 0
+    arr = []
+    arr_extern = []
+
+    for i in range(n):
+        for j in range(3):
+            
+            num = int(input('angel in deegres'))
+            arr_extern.append(num)
+
+        arr.append(arr_extern)
+        arr_extern = []
+    print(arr)
+    for k in range(len(arr)):
+        for n in range(1):
+            s=sum(arr[k])
+          
+        if s == 180:
+            print('YES, its valid triangel.')
+            s=0
+        else:
+            print('NO, its not valid triangel.')
+            s=0
+        
+#valid_triangles(2)
+
+    
     
 
+        
+
+    
+    
+
+    
+            
+        
+        
 
 
 
