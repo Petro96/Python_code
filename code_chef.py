@@ -280,6 +280,89 @@ def valid_triangles(n):
         
 #valid_triangles(2)
 
+#### Decrement or Increment
+
+def d_or_i():
+    result = 0
+    while True:
+
+        i =int( input('num '))
+
+        if i == -1:
+            break
+
+        if i % 4 == 0:
+            i+=1
+            print(i)
+
+        else:
+            i -= 1
+            print(i)
+
+    print('End')
+
+#d_or_i()
+
+### prime numbers
+
+### id and ship
+
+def id_(n):
+
+    arr = ['BattleShip','Cruiser','Destroyer','Frigale']
+
+    for k in range(n):
+
+        i = input('id ')
+
+        if i == arr[k][0]:
+            print(arr[k])
+
+        if i.upper() == arr[k][0]:
+            print(arr[k])
+
+        else:
+            print('Theres no ID . ')
+
+#id_(2)
+
+### puppy and sum
+
+### total expenses
+#total price * discount / 100 --> result - total price => 
+def total(n):
+
+    result = 0
+    total_result = 0
+
+    for i in range(n):
+        for k in range(1):
+            
+            n = int(input('quantity :'))
+            m =int(input('price : '))
+
+            if n > 1000:
+                result = (m * 10 )/100
+                total_result = (m-result) *n
+                print('Price with discount: ',total_result)
+
+            else:
+                total_result = m * n
+                print('Price without discount: ',total_result)
+
+#total(2)
+
+### 
+
+                
+
+            
+
+        
+    
+
+        
+            
     
     
 
