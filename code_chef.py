@@ -352,8 +352,39 @@ def total(n):
 
 #total(2)
 
+### Grade the steel
+                
+def steel(n):
+
+    print('1.Hardness > 50\n2.Carbon content < 0.7\nTensile strength > 5600 :')
+    arr = []
+    
+    for i in range(n):
+        for j in range(3):
+            num = float(input('number : '))
+
+            arr.append(num)
+        if arr[0] > 50 and arr[1] < 0.7 and arr[2] > 5600 :
+            print('10 --> all three condition are met.')
+        elif arr[0] > 50 and arr[1] < 0.7 :
+            print('9 --> (1) and (2) are met.')
+        elif arr[1] < 0.7 and arr[2] > 5600 :
+            print('8 --> (2) and (3) are met.')
+        elif arr[0] > 50 and arr[2] > 5600 :
+            print('7 --> (1) and (3) are met.')
+        elif arr[0] > 50 or arr[1] < 0.7 or arr[2] > 5600:
+            print('6 --> only one is met.' )
+        else:
+            print('5 --> none of three condition are met.')
+        arr = []
+
+#steel(2)
+
 ### 
 
+
+            
+                    
                 
 
             
