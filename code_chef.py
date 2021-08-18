@@ -380,7 +380,98 @@ def steel(n):
 
 #steel(2)
 
-### 
+### greede puppy , you leaving coin for puppy 
+# N M --> N - (M*M)
+
+def puppy(n):
+
+    result = 0
+
+    for i in range(n):
+        for j in range(1):
+
+            num1 = int(input('number1: '))
+            num2 = int(input('number2: '))
+
+            result = num1 - (num2 * num2)
+
+            print(result,'coins will leave for Tuzik. ')
+        result = 0
+
+#puppy(2)
+
+### chef and fruits, you need to have equal apples and oranges,
+
+def fruits(n):
+
+    result  = 0
+    r = 0
+
+    for i in range(n):
+        for j in range(1):
+
+            a = int(input('apples: '))
+            o = int(input('oranges '))
+            c = int(input('coins'))
+
+        if a == o:
+            print('equal',result)
+
+        if a > o and c > 0:
+            r = a - o # 5 3 1
+            if r == c:
+                print(result,'equal')
+            else:
+                print(r,'difference')
+
+        if o > a and c > 0:
+            r = o - a
+            if r == c :
+                print(result,'equal')
+            else:
+                print(r,'difference')
+#fruits(1)       
+                
+### vowel or consonant
+def check(c):
+
+    vowels = ['A','E','I','O','U']
+
+    for i in range(len(vowels)):
+        
+        if vowels[i].upper() == c :
+            
+            print('Vowel')
+        
+    else:
+        print('Consonant')
+
+check('e')
+
+def how_many_digits(n):
+
+    print('1 is one digit number\n2 is two digit number\n3 is three digit number\nmore than 3 if N more than three')
+    length = 0
+    for i in range(n):
+
+        n = str(input('number: '))
+        length = len(n)
+        if length == 1:
+            print('1')
+        elif length == 2:
+            print('2')
+        elif length == 3:
+            print('3')
+        else:
+            print('More than three digit')
+
+#how_many_digits(4)
+
+###         
+
+        
+        
+
 
 
             
