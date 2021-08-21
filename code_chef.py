@@ -446,7 +446,7 @@ def check(c):
     else:
         print('Consonant')
 
-check('e')
+#check('e')
 
 def how_many_digits(n):
 
@@ -467,8 +467,24 @@ def how_many_digits(n):
 
 #how_many_digits(4)
 
-####         
+#### Minimum and Maxium          
+def m(arr):
 
+    maximum = 0
+
+    for i in range(len(arr)):
+
+        if arr[i] > maximum :
+            maximum = arr[i]
+
+    return maximum
+
+#arr = [1,3,23,121,35,5]
+#print(m(arr))
+
+            
+
+    
         
         
 
