@@ -482,7 +482,33 @@ def m(arr):
 #arr = [1,3,23,121,35,5]
 #print(m(arr))
 
+## input,print data
 
+def input_data(velkost):
+    arr = []
+
+    for i in range(velkost):
+        j = int(input('input number'))
+
+        arr.append(j)
+
+    return arr
+
+def print_array(arr,velkost):
+
+    for i in range(velkost):
+        print("Element in array: ",arr[i])
+
+        
+
+def main():
+    arr = []
+    i = int(input("Array length: "))
+    print("Length of array: ",i)
+    arr = input_data(i)
+    print_array(arr,i)
+
+#main()
 
             
         
