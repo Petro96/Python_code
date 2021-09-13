@@ -142,7 +142,7 @@ def f7(n):
 
     for j in range(len(arr)):
         for k in range(len(arr[j])-1,-1,-1):
-            reverse= reverse+arr[j][k]
+            reverse = reverse+arr[j][k]
         arr_reverse.append(reverse)
         reverse=''
         
@@ -510,7 +510,7 @@ def main():
 
 #main()
 
-            
+     
         
         
         
