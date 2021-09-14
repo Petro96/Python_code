@@ -1,7 +1,7 @@
 ##################################################################################
 ################################# Code chef ######################################
 #### imports ###############
-
+import random
 
 ############################
 
@@ -510,8 +510,56 @@ def main():
 
 #main()
 
+### Chef and Coloring #######
+
+# R + G = B
+# B + R = G
+# B + G = R
+
+def printing(arr):
+    l = len(arr)
+    for i in range(l):
+        print("Element ",i+1,"color ",arr[i],"\n")
+
+
+def rooms_to_paint(arr,cases):
+    length = len(arr)
+    for i in range(length):
+        a = arr[i].count('R')
+        b = arr[i].count('G')
+        c = arr[i].count('B')
+        m = max(a,b,c)
+        r = cases - m
+        print("How many colours to paint room with same color:\n",r)
+
+def coloring(rooms,cases):
+    arr = ['R','G','B']
+    arr_combinatios = []
+    s=''
+    
+    for j in  range(cases):
+
+        for i in range(rooms):
+            r = random.randint(0,rooms-1)
+            s+=arr[r]
+        arr_combinatios.append(s)
+        s=''
+
+    return arr_combinatios
+#print(coloring(3,2))
+def main():
+    print("Enter the number of cases and number of rooms: \n")
+    i = int(input("cases: "))
+    room = int(input("Numb of rooms\n"))
+
+    c = coloring(room,i)
+    printing(c)
+    rooms_to_paint(c,i)
+
+#main() 
+
+###Buying a new tablet N-tablets,B-budget,each N tablet has own:W-width,H-height,P-price
      
-        
         
         
 
