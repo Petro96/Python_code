@@ -558,7 +558,59 @@ def main():
 
 #main() 
 
+### palindrome from numbers
+
+def palindrom_num(n):
+    return str(n)==str(n)[::-1]
+    
+#print(palindrom_num(100))
+#print(palindrom_num(151))
+
+
+### middle character
+
+def middle_char(s):
+    l = len(s)
+    string = ''
+    r = 0
+    if l % 2 == 0:
+        r = l//2
+        string += s[r-1]
+        string += s[r]
+    if l % 2 !=0:
+        r = l//2
+        string +=s[r]
+
+    return string
+
+def get_data(length):
+    arr = []
+
+    for i in range(length):
+        i = input('Get string: ')
+        arr.append(i)
+    return arr
+
+#print(middle_char(('lanem')))
+
+def main():
+    print("Enter the size of an array: ")
+    size = int(input("Size of array "))
+
+    a = get_data(size)
+    for i in range(size):
+        print("Middle char of string",a[i],"is",middle_char(a[i]))
+
+#main()
+
+
+### math operations on numbers by indexes in arrays
+### remove duplicate
+### oldiest student from dict
+
 ###Buying a new tablet N-tablets,B-budget,each N tablet has own:W-width,H-height,P-price
+### Cats and Dogs
+
      
         
         
