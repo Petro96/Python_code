@@ -99,7 +99,7 @@ class Manager(Employee):
 
 
 #----------------------------------------------------------#
-
+'''
 dev1 = Developer("Corey","Schafer",50000,"Pyhton")
 dev2 = Developer("Jack","Moon",60000,"SQL")
 
@@ -124,10 +124,38 @@ print(issubclass(Developer,Manager))
 #print(dev1.prog_lang)
 #dev1.apply_rise()
 #print(dev1.pay)
+'''
+### __name__ == '__main__' ###
 
+# module from file
+#import module
 
+#print "First module name:{}".foramt(__name__)
+
+def main():
+    print("Run Directly!")
+
+if __name__ == '__main__': #direcly by python
+    main()
+else:
+    print("Run import!")  # import in another file
+
+## try,except,finally,raise
+
+##try: 
+##    f = open("test.txt")
+##except: 
+##    print('Could not open file')
+##finally:
+##    f.close()
+##print('Program continue')
+
+    
+##raise ImportError # create error
+    
 
 ########################## Classmethods, Staticmethods ######################
+
 
 
 

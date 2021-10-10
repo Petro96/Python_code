@@ -377,3 +377,129 @@ class Person(object):
 # p1.skills.append('PHP')
 # print(p1)
 # p1.printing()
+
+## Shop 
+'''
+class Shop(object):
+
+    def __init__(self,name,items):
+        self.name = name
+        self.items = items
+    
+    def get_items_count(self):
+        return len(self.items)
+
+    def print_items(self):
+        for item in self.items:
+            print("item ---> ",item)
+
+shop1 = Shop("Gomex",["Apples","juce","Chees","Limons"])
+shop1.print_items()
+print("Numer of items: ",shop1.get_items_count())
+'''
+
+## Hero
+
+# hero --> name,healt
+#hero can be defeted(if (-) return to 0)
+#hero can be heal 
+'''
+class Hero(object):
+
+    def __init__(self,name,healt):
+        self.name = name
+        self.healt = healt
+
+    def Defeded(self,value):
+        self.healt -= value
+        if self.healt < 0:
+            self.healt = 0
+        print("Is Defeded ",self.healt)
+
+    def Heal(self,amount):
+        self.healt += amount
+        return self.healt
+
+    def printing(self):
+        print("Hero name: ",self.name," his health ",self.healt)
+
+h = Hero("Pokahontas",100)
+h.printing()
+h.Defeded(40)
+print("Was heal,His healt now --> ",h.Heal(30))
+'''
+
+# Employee id,first,last,salary,email
+#get_full_name
+#rise
+#is_getting_to_course
+'''
+class Employee(object):
+
+    rise_amount = 1.10
+
+    def __init__(self,id,first_name,last_name,salary,get_course):
+        self.id = id
+        self.first_name = first_name
+        self.last_name = last_name
+        self.salary = salary
+        self.get_course = get_course
+        self.email = first_name + last_name + '@gmail.com'
+
+    def get_full_name(self):
+        return '{} {}'.format(self.first_name,self.last_name)        
+
+    def is_getting_to_course(self):
+        if self.get_course ==True:
+            print(self.first_name," going to Course.")    
+        else:
+            print(self.first_name,"are not going to any Course.")
+    
+    def rise(self):
+        return self.salary * Employee.rise_amount
+
+e = Employee(12345,"Janko","Povolny",1000,False)
+
+if __name__ == '__main__':
+
+    print(e.get_full_name())
+    e.is_getting_to_course()
+    print(e.first_name,"was has salary ",e.salary,"After rise have: ",e.rise())
+else:
+    print("Imported!") 
+    # rise() -- > executible in file that I import Classes.file file
+'''
+
+# Flower --> name,water_reguirements,is_happy=False
+#water(),status(),printing_info()
+#bonus: date in wich flower flowering 
+
+class Flower(object):
+
+    def __init__(self,name,water_requirements,is_happy=False):
+        self.name = name
+        self.water_requirements = water_requirements
+        self.is_happy = is_happy
+
+    def printing_info(self):
+        print(f'Flower name : {self.name} and his water requiremetns are {self.water_requirements}.')
+
+    def water(self,value):
+        result = self.water_requirements - value
+        self.enough = 0
+        if result > 0:
+            self.enough = 1
+
+    def status(self):
+        if self.enough == 0:
+            self.is_happy = True
+        print("Rose is happy ? :",self.is_happy)
+
+f = Flower("Rose",100)
+
+if __name__ == '__main__':
+    f.printing_info()
+    f.water(100)
+    f.status()
+else:
+    print("Imported!")
