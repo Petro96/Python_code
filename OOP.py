@@ -1,3 +1,10 @@
+############### OOP ######################################################
+
+### Inheritance
+### Polymorphism
+### Encapsulation
+### Abstraction
+
 ################# Inheritance ############################################
 '''
 class Dog(object):
@@ -52,50 +59,50 @@ d2.talk()
 
 ################################################################
 
-class Employee:
-
-    raise_amt = 1.04 #class variable(attribute)
-
-    def __init__(self,first,last,pay):
-        self.first = first  #instance variable,attribute
-        self.last = last
-        self.email = first + "."+last+'@gmail.com'
-        self.pay = pay
-
-    def fullname(self):
-        return '{} {}'.format(self.first,self.last)
-
-    def apply_rise(self):
-        self.pay = int(self.pay * self.raise_amt)
-
-class Developer(Employee):
-
-    raise_amt = 1.10
-    
-    def __init__(self,first,last,pay,prog_lang):  # help() method
-        super().__init__(first,last,pay)
-        self.prog_lang = prog_lang
-
-class Manager(Employee):
-
-    def __init__(self,first,last,pay,employees=None):
-        super().__init__(first,last,pay)
-        if employees is None:
-            self.employees = []
-        else:
-            self.employees = employees
-
-    def add_emp(self,emp):
-        if emp not in self.employees:
-            self.employees.append(emp)
-
-    def remove_emp(self,emp):
-        if emp in self.employees:
-            self.employees.remove(emp)
-
-    def print_emp(self):
-        for emp in self.employees:
-            print("-->",emp.fullname())
+##class Employee:
+##
+##    raise_amt = 1.04 #class variable(attribute)
+##
+##    def __init__(self,first,last,pay):
+##        self.first = first  #instance variable,attribute
+##        self.last = last
+##        self.email = first + "."+last+'@gmail.com'
+##        self.pay = pay
+##
+##    def fullname(self):
+##        return '{} {}'.format(self.first,self.last)
+##
+##    def apply_rise(self):
+##        self.pay = int(self.pay * self.raise_amt)
+##
+##class Developer(Employee):
+##
+##    raise_amt = 1.10
+##    
+##    def __init__(self,first,last,pay,prog_lang):  # help() method
+##        super().__init__(first,last,pay)
+##        self.prog_lang = prog_lang
+##
+##class Manager(Employee):
+##
+##    def __init__(self,first,last,pay,employees=None):
+##        super().__init__(first,last,pay)
+##        if employees is None:
+##            self.employees = []
+##        else:
+##            self.employees = employees
+##
+##    def add_emp(self,emp):
+##        if emp not in self.employees:
+##            self.employees.append(emp)
+##
+##    def remove_emp(self,emp):
+##        if emp in self.employees:
+##            self.employees.remove(emp)
+##
+##    def print_emp(self):
+##        for emp in self.employees:
+##            print("-->",emp.fullname())
 
 
 #----------------------------------------------------------#
@@ -125,7 +132,7 @@ print(issubclass(Developer,Manager))
 #dev1.apply_rise()
 #print(dev1.pay)
 '''
-### __name__ == '__main__' ###
+### __name__ == '__main__' #########################################
 
 # module from file
 #import module
@@ -140,7 +147,7 @@ if __name__ == '__main__': #direcly by python
 else:
     print("Run import!")  # import in another file
 
-## try,except,finally,raise
+## try,except,finally,raise ##################################################
 
 ##try: 
 ##    f = open("test.txt")
@@ -152,12 +159,168 @@ else:
 
     
 ##raise ImportError # create error
+
+################################# Abstract Classes ##########################
+
+# -- allownes of data
+
+from abc import ABC,abstractmethod
+
+class Shape(ABC): # inherits in ABC(abstract) module
     
+    @abstractmethod
+    def area(self):pass
+
+    @abstractmethod
+    def perimeter(self):pass
+
+class Square(Shape):
+    
+    def __init__(self,side):
+        self.__side = side
+
+    def area(self):
+        return self.__side * self.__side
+
+    def perimeter(self):
+        return 4*self.__side
+
+#shape = Shape() # error(abstractmethod)
+square = Square(5) # error (inherit from abstractmethod)
+
+##if __name__ == '__main__':
+##    print("Im here , in this file.")
+##    print(square.area())
+##    print(square.perimeter())
+
+  
+class R(ABC):
+
+    @abstractmethod
+    def rk(self): 
+        print("Abstract Base Class")
+        
+    @abstractmethod
+    def print():
+        print("hello")
+  
+class K(R):
+
+    
+    def rk(self): 
+        super().rk() 
+        print("subclass ")
+
+    def print():
+        print("hello World")
+
+##r = K() 
+##r.rk() 
 
 ########################## Classmethods, Staticmethods ######################
+#Classmethod
+        
+# - methods(self)
+# - classmethods(cls)
+# - making changes inside class(class variables)
+import datetime
+
+class Employee:
+
+    raise_amt = 1.04 #class variable(attribute)
+    num_of_emps = 0
+
+    def __init__(self,first,last,pay):
+        self.first = first  #instance variable,attribute
+        self.last = last
+        self.email = first + "."+last+'@gmail.com'
+        self.pay = pay
+
+        Employee.num_of_emps +=1
+
+    def fullname(self):
+        return '{} {}'.format(self.first,self.last)
+
+    def apply_rise(self):
+        self.pay = int(self.pay * self.raise_amt)
+
+    @classmethod
+    def set_raise_amt(cls,amount):
+        cls.raise_amt = amount
+
+    @classmethod
+    def from_string(cls,emp_str):
+        first,last,pay = emp_str.split('-')
+        return cls(first,last,pay)
+
+    @staticmethod
+    def is_workday(day):
+        if day.weekday() == 5 or day.weekday()==6:
+            return False
+        return True
+        
+
+emp1 = Employee("Corey","Schafer",50000)
+emp2 = Employee("Jack","Moon",60000)
+
+##print(emp1.fullname())
+##print(emp2.fullname())
+##
+##Employee.set_raise_amt(1.05) #Employee.raise_amt = 1.05 / emp1.set_raise_amt(1.05)
+##
+##print(Employee.raise_amt)
+##print(emp1.raise_amt)
+##print(emp2.raise_amt)
+
+## example of classmethod useage -- >>>  Alternative Constructor <<<< -------
+
+emp_str1 = 'John-Deep-4500'
+emp_str2 = 'Steve-Smith-5000'
+emp_str3 = 'Jane-Doe-6000'
+
+#first,last,pay = emp_str1.split('-')
+
+#new_emp1 = Employee(first,last,pay)
+new_emp1 = Employee.from_string(emp_str1)
+
+#print(new_emp1.email)
+
+## Staticmethod
+# like regular functions
+
+##my_date = datetime.date(2021,10,12)
+##print(Employee.is_workday(my_date))
+
+############
+
+class Dog(object):
+
+    dogs = []
+
+    def __init__(self,name):
+        self.name = name
+        self.dogs.append(self)
+
+    @classmethod
+    def num_of_Dogs(cls):
+        return len(cls.dogs)
+
+    @staticmethod
+    def bark(n):
+        for i in range(n):
+            print("BARK!")
+
+d1 = Dog("Jacky")
+d2 = Dog("Bobi")
+
+print(Dog.num_of_Dogs())
+print(Dog.bark(5))
+
+################################## Property, setters,getters,deleters ##############
 
 
 
+    
 
 
 

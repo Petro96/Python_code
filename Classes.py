@@ -378,6 +378,7 @@ class Person(object):
 # print(p1)
 # p1.printing()
 
+##################### Basic OOP exercise 
 ## Shop 
 '''
 class Shop(object):
@@ -473,7 +474,7 @@ else:
 # Flower --> name,water_reguirements,is_happy=False
 #water(),status(),printing_info()
 #bonus: date in wich flower flowering 
-
+'''
 class Flower(object):
 
     def __init__(self,name,water_requirements,is_happy=False):
@@ -503,3 +504,90 @@ if __name__ == '__main__':
     f.status()
 else:
     print("Imported!")
+'''
+
+#steam yser:userName,games-->Array,played_hours=0
+#play(game,hours)
+#buy_game(game)
+#status
+
+'''
+class Steam(object):
+
+    dict_of_played_games = {}
+
+    def __init__(self,name,games,played_hours=0):
+        self.name = name
+        self.games = games
+        self.played_hours = played_hours
+
+    
+    def play(self,game,hours):
+        if game in self.games:
+            self.played_hours+=hours
+            self.dict_of_played_games[game] = str(hours) # [('guitars','3'),('Drums','1')]-->dict(ofArray)
+
+            print(f'You {self.name} play {game} ')
+
+        else:
+            print(f'The Game {game} is not in library.')
+    
+    def buy_game(self,game):
+        if game not in self.games:
+            self.games.append(game)
+            return f"You bought {game}."
+        else:
+            return f"Tha Game is already in library."
+
+    
+    def status(self):
+        return f'All that you play {self.dict_of_played_games} totaly hours {self.played_hours}'
+
+s = Steam("Vlado",['FC','Cars','Chees'])
+s.play('FC',50)
+s.buy_game('LOL')
+s.play('LOL',100)
+print(s.status())
+'''
+#programmer:name,language,skills
+#watch_course(courseName,language,skills_earned)
+#change_language(new_lang,skills_needed)
+
+class Programmer(object):
+
+    def __init__(self,name,language,skills):
+        self.name = name
+        self.language = language
+        self.skills = skills
+
+    def watch_course(self,language,skills_earned):
+
+        if language == self.language:
+            self.skills += skills_earned
+            return f'{self.name} watch {language} course and you earned {self.skills}.'
+        else:
+            return f'{self.name} does not know {language} language.'
+
+    def change_language(self,new_lang,skills_nedded):
+
+        previes_lang = self.language
+
+        if skills_nedded <= self.skills and new_lang != previes_lang:
+            self.language = new_lang
+            return f'{self.name} switched from {previes_lang} to {new_lang}.'
+        elif skills_nedded <= self.skills and new_lang == previes_lang:
+            return f'{self.name} already know that language'
+
+        elif skills_nedded > self.skills :
+            return f'{self.name} needs to learn. Needs {skills_nedded - self.skills} more skills.'
+
+# p = Programmer("Vlado","Python",70)
+# print(p.watch_course("Python",10))
+# print(p.change_language("Java",95))
+
+
+
+
+
+
+
