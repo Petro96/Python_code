@@ -585,6 +585,77 @@ class Programmer(object):
 # print(p.watch_course("Python",10))
 # print(p.change_language("Java",95))
 
+## Reverse Sentence OOP
+
+class ReverseSentence:
+
+    def __init__(self,arr):
+        self.arr = arr
+        
+
+    def reverse(self,sentence):
+        self.sentence = sentence
+        return " ".join(self.sentence.split(" ")[::-1])
+
+    def reverse_string(self,string):
+        s=''
+        for i in range(len(string)-1,-1,-1):
+            s+=string[i]
+        return s
+
+    def reverse_string_characters(self,i):
+        self.i = i
+        return self.reverse_string(self.i)
+    
+    def check(self): # main function
+
+        for item in self.arr:
+        
+            length = len(item.split(" "))
+
+            if length == 1:
+                print("Reverse string characters: ",self.reverse_string_characters(item))
+            else:
+                print("Reverse: ",self.reverse(item))
+
+
+# if __name__ == '__main__':
+#     s = ReverseSentence(["Hello World","Moonshine","Good People"])
+#     s.check()
+# else:
+#     print("Imported!")
+
+## Encapsulation
+
+class Person(object):
+
+    def __init__(self,name,age,job):
+        self.name = name
+        self.__age = age
+        self.job = job
+        self.__email = name+'@gmail.com'
+        
+    def update_job(self,job):
+        self.job = job
+
+    def getEmail(self):
+        return self.__email
+
+    def __getAge(self): #cant access this method !!!!!
+        return self.__age
+
+    def getInfo(self):
+        return f'Name: {self.name} , Age: {self.__age}, Job: {self.job}, Email: {self.__email}'
+
+if __name__ == '__main__':
+    p = Person("John",30,"Programmer")
+    print(p.getEmail())
+    print(p.getInfo())
+    
+
+else:
+    print("Imported!")
+
 
 
 

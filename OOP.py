@@ -138,7 +138,7 @@ print(issubclass(Developer,Manager))
 #import module
 
 #print "First module name:{}".foramt(__name__)
-
+'''
 def main():
     print("Run Directly!")
 
@@ -146,7 +146,7 @@ if __name__ == '__main__': #direcly by python
     main()
 else:
     print("Run import!")  # import in another file
-
+'''
 ## try,except,finally,raise ##################################################
 
 ##try: 
@@ -162,7 +162,8 @@ else:
 
 ################################# Abstract Classes ##########################
 
-# -- allownes of data
+# -- allownes of data(protected)
+# must be @abstractclass "balance" between two classes
 
 from abc import ABC,abstractmethod
 
@@ -272,7 +273,7 @@ emp2 = Employee("Jack","Moon",60000)
 ##print(emp1.raise_amt)
 ##print(emp2.raise_amt)
 
-## example of classmethod useage -- >>>  Alternative Constructor <<<< -------
+## example of classmethod useage -- >>>  Alternative Constructor(classmethod) <<<< -------
 
 emp_str1 = 'John-Deep-4500'
 emp_str2 = 'Steve-Smith-5000'
@@ -313,14 +314,154 @@ class Dog(object):
 d1 = Dog("Jacky")
 d2 = Dog("Bobi")
 
-print(Dog.num_of_Dogs())
-print(Dog.bark(5))
+##print(Dog.num_of_Dogs())
+##print(Dog.bark(5))
+
+#################################### Encapsulation ##########################
+#private,protected
+#like black-boxing
+
+class Mobile:
+
+    __os = 'andriod'
+    __name = ""
+
+    def __init__(self):
+        self.__os = 'andriod'
+        self.__name = "Supercar"
+
+    def switch_on(self):
+        print ('Mobile Os is ' + str(self.__os))
+
+    def getName(self):
+        print("Name:",self.__name)
+
+    def set_os(self,os):
+        self.__os = os
+
+##smobile = Mobile()
+##smobile.switch_on()
+##smobile.__os = 'ios'   # cant be change like that
+##smobile.switch_on()
+##smobile.getName() # private variable i can access,change only with class methods!!!!
+###print(smobile.__name) # dont exist because is private
+##smobile.set_os('iOS') # i can change private var with class method only!!!!!
+##smobile.switch_on() # after changing
+##print('-'*100)
+
+#    _underscore  -> private , __doubleunderscore -> protected
+
+class Car: 
+    
+    def __init__(self,speed,color):
+        self.__speed = speed
+        self.color = color
+        
+
+    def set_speed(self,value): #setter
+        self.__speed = value
+
+    def get_speed(self):        #getter
+        return self.__speed
+
+##in some case: 
+## def __get_speed(self):
+##        return self.__speed
+##
+##    def get(self):
+##        return self.__get_speed()
+
+##ford = Car(200,'red')
+##honda = Car(250,'blue')
+##audi = Car(300,'black')
+##
+##ford.set_speed(250)
+##print(ford.get_speed())
+##print(ford.speed) # is private(cant view)
+
+######################## Overloading ###########################################
+    
+# defining method that there are multiple call ways
+
+class Mobile:
+
+    def get_brand(self,brand=None):
+        if brand is not None:
+            print(brand)
+        else:
+            print("Generic")
+
+##obj = Mobile()
+##obj.get_brand()
+##obj.get_brand("Samsung")
+
+
+################################## Returning Self ###############################
+# Returning self from a method simply means that your method returns
+# a reference to the instance object on which it was called
+
+class Counter(object):
+
+    def __init__(self,start=0):
+        self.val = start
+
+    def increment(self):
+        self.val+=1
+        return self
+
+    def decrement(self):
+        self.val-=1
+        return self
+
+c = Counter()           
+##c.increment().increment().increment() # three times reference to c-object
+##print(c.val )
 
 ################################## Property, setters,getters,deleters ##############
+# use some class method like class argument(variable) not like method
+# use setters(define setter like property),getters,deleters 
 
+class Employee:
 
-
+    def __init__(self,first,last):
+        self.first = first
+        self.last = last
+        #self.email = first + '.' + last + '@gmail.com'
     
+    #update email automaticlly when i change first,last
+        
+    @property  # you can change it like variable not like method
+    def email(self):
+        return '{} {}@gmail.com'.format(self.first,self.last)
+
+    @property
+    def fullname(self):
+        return '{} {}'.format(self.first,self.last)
+
+    #set first, last together
+    
+    @fullname.setter
+    def fullname(self,name): #define setter like property!!!! 
+        first, last = name.split(' ')
+        self.first = first
+        self.last = last
+
+    #@fullname.deleter
+##    def fullname(self):
+##        print("Delete name")
+##        self.first = None
+##        self.last = None
+
+emp1 = Employee('John','Smith')
+
+if __name__ == '__main__':
+    
+    #emp1.first = 'Mark'
+    emp1.fullname = 'Mark Johnnson' # I use property method(setter) like variable 
+    
+    print(emp1.first)
+    print(emp1.email) #@property
+    print(emp1.fullname)
 
 
 
