@@ -595,7 +595,7 @@ class ReverseSentence:
 
     def reverse(self,sentence):
         self.sentence = sentence
-        return " ".join(self.sentence.split(" ")[::-1])
+        return " ".join(self.sentence.split(" ")[::-1]) # .join(string.split(" ")[::-1])
 
     def reverse_string(self,string):
         s=''

@@ -611,15 +611,32 @@ def main():
 ###Buying a new tablet N-tablets,B-budget,each N tablet has own:W-width,H-height,P-price
 ### Cats and Dogs
 
-     
+
+### Find from array a pair that gives a highest product .     
         
+def highest_pair(arr):
+
+    maximum = 0
+    max_pair_arr = []
+
+    for i in range(len(arr)):
+        for j in range(len(arr)):
+            product = arr[i] * arr[j]
+
+            if product > maximum and arr[i]!=arr[j]: # not multiply with same num 
+                max_pair_arr = []
+                maximum=product
+                max_pair_arr.append(arr[i])
+                max_pair_arr.append(arr[j])
+                continue
         
 
-
-
-            
-                    
+    return max_pair_arr
                 
+a = [60,1,2,32,50,3,4]                   
+
+if __name__ == '__main__':
+    print(highest_pair(a))
 
             
 

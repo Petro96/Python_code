@@ -190,6 +190,7 @@ class Square(Shape):
 square = Square(5) # error (inherit from abstractmethod)
 
 ##if __name__ == '__main__':
+##    
 ##    print("Im here , in this file.")
 ##    print(square.area())
 ##    print(square.perimeter())
@@ -454,14 +455,15 @@ class Employee:
 
 emp1 = Employee('John','Smith')
 
-if __name__ == '__main__':
-    
-    #emp1.first = 'Mark'
-    emp1.fullname = 'Mark Johnnson' # I use property method(setter) like variable 
-    
-    print(emp1.first)
-    print(emp1.email) #@property
-    print(emp1.fullname)
+##if __name__ == '__main__':
+##    
+##    #emp1.first = 'Mark'
+##    emp1.fullname = 'Mark Johnnson' # I use property method(setter) like variable 
+##    
+##    print(emp1.first)
+##    print(emp1.email) #@property
+##    print(emp1.fullname)
+
 
 
 
