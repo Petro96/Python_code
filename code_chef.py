@@ -242,7 +242,7 @@ def f10(n):
             maximum = max(arr[k])
             minimum = min(arr[k])
             s = maximum + minimum
-        print('min ',minimum,'s ',s)
+        print('min ',minimum,'suma ',s)
 
         s=0
         minimum =0
@@ -635,8 +635,8 @@ def highest_pair(arr):
                 
 a = [60,1,2,32,50,3,4]                   
 
-if __name__ == '__main__':
-    print(highest_pair(a))
+##if __name__ == '__main__':
+##    print(highest_pair(a))
 
             
 
