@@ -1,0 +1,15 @@
+BoxLayout:
+    orientation: 'vertical'
+    MDToolbar:
+        right_action_items: [["dots-vertical",lambda button:app.dropdown.open(button)]]
+        title: "MDDropdownMenu Example"
+        md_bg_color:app.theme_cls.primary_color
+
+        BoxLayout:
+            Widget:
+            MDRaiseButton:
+                text: "Menu"
+                pos_hint: {"center_y":.5}
+            Widget:
+
+
